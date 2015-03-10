@@ -10,6 +10,14 @@
 
 @interface ViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *counter;
+@property (weak, nonatomic) IBOutlet UILabel *timeSinceLabel;
+@property (weak, nonatomic) IBOutlet UIButton *refreshButton;
+
+@property NSDate *startTime;
+
+- (IBAction)resetButtonPushed:(id)sender;
+- (IBAction)refreshButtonPushed:(id)sender;
 
 @end
 

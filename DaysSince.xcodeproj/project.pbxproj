@@ -167,7 +167,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0610;
-				ORGANIZATIONNAME = blah;
+				ORGANIZATIONNAME = "";
 				TargetAttributes = {
 					2253E8891AAE850C00A16E58 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -418,6 +418,7 @@
 				2253E8B21AAE850C00A16E58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2253E8B31AAE850C00A16E58 /* Build configuration list for PBXNativeTarget "DaysSinceTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +427,7 @@
 				2253E8B51AAE850C00A16E58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

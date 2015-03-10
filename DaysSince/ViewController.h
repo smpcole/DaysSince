@@ -19,5 +19,8 @@
 - (IBAction)resetButtonPushed:(id)sender;
 - (IBAction)refreshButtonPushed:(id)sender;
 
+- (void)refresh;
+- (void)reset;
+
 @end
 

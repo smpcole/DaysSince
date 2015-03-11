@@ -11,21 +11,22 @@
 @implementation Counter
 
 - (id)initWithCoder:(NSCoder *)decoder {
-    self = [self init];
+    NSDate *startTime = [decoder decodeObjectForKey:@"startTime"];
+    NSString *event = [decoder decodeObjectForKey:@"event"];
+    return [self initWithStartTime:startTime event:event];
+}
+
+- (id)initWithStartTime:(NSDate *)startTime event:(NSString *)event {
+    self = [super init];
     if(self) {
-        self.startTime = [decoder decodeObjectForKey:@"startTime"];
-        self.event = [decoder decodeObjectForKey:@"event"];
+        self.startTime = startTime;
+        self.event = event;
     }
     return self;
 }
 
 - (id)init {
-    self = [super init];
-    if(self) {
-        self.startTime = [NSDate date];
-        self.event = @"I last pushed \"reset\".";
-    }
-    return self;
+    return [self initWithStartTime:nil event:nil];
 }
 
 - (void)encodeWithCoder:(NSCoder *)encoder {

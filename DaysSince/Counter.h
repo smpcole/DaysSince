@@ -13,4 +13,6 @@
 @property NSDate *startTime;
 @property NSString *event;
 
+- (id)initWithStartTime:(NSDate *)startTime event:(NSString*)event;
+
 @end

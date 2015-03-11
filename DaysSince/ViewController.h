@@ -10,7 +10,7 @@
 
 @interface ViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UILabel *counter;
+@property (weak, nonatomic) IBOutlet UILabel *counterLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeSinceLabel;
 @property (weak, nonatomic) IBOutlet UIButton *refreshButton;
 

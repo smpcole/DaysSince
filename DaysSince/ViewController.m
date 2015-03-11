@@ -29,7 +29,7 @@
     // Convert to days
     timeElapsed /= (60 * 60 * 24);
 #endif
-    [self.counter setText:[NSString stringWithFormat:@"%d", timeElapsed]];
+    [self.counterLabel setText:[NSString stringWithFormat:@"%d", timeElapsed]];
 }
 
 - (void)viewDidLoad {

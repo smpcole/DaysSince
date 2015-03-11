@@ -55,7 +55,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="counter" destination="XeX-1y-Di1" id="d94-XN-CHQ"/>
+                        <outlet property="counterLabel" destination="XeX-1y-Di1" id="4Gr-Ww-hWd"/>
                         <outlet property="refreshButton" destination="M7M-fO-dwX" id="x64-av-ZPt"/>
                         <outlet property="timeSinceLabel" destination="2jf-7L-btG" id="U4J-wh-cXP"/>
                     </connections>

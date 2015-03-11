@@ -16,11 +16,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *refreshButton;
 @property (weak, nonatomic) IBOutlet UITextField *eventTextField;
 
-@property Counter *counter;
+@property NSDate *startTime;
 
 - (IBAction)resetButtonPushed:(id)sender;
 - (IBAction)refreshButtonPushed:(id)sender;
-- (IBAction)eventEdited:(id)sender;
 
 - (void)refresh;
 - (void)reset;

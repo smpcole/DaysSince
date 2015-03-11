@@ -7,17 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Counter.h"
 
 @interface ViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *counterLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeSinceLabel;
 @property (weak, nonatomic) IBOutlet UIButton *refreshButton;
+@property (weak, nonatomic) IBOutlet UITextField *eventTextField;
 
-@property NSDate *startTime;
+@property Counter *counter;
 
 - (IBAction)resetButtonPushed:(id)sender;
 - (IBAction)refreshButtonPushed:(id)sender;
+- (IBAction)eventEdited:(id)sender;
 
 - (void)refresh;
 - (void)reset;

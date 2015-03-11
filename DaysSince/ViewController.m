@@ -15,15 +15,15 @@
 @implementation ViewController
 
 - (void)reset {
-    self.startTime = [NSDate date];
-    NSLog(@"Start time set to %@", self.startTime);
+    self.counter.startTime = [NSDate date];
+    NSLog(@"Start time set to %@", self.counter.startTime);
     [self refresh];
 }
 
 - (void)refresh {
     
     // # seconds since startTime
-    int timeElapsed = [[NSDate date] timeIntervalSinceDate:self.startTime];
+    int timeElapsed = [[NSDate date] timeIntervalSinceDate:self.counter.startTime];
     NSLog(@"%d seconds since start time", timeElapsed);
 #ifndef DEBUG
     // Convert to days
@@ -41,7 +41,11 @@
 #else
     self.refreshButton.hidden = YES;
 #endif
-    [self reset];
+    
+    // TODO: use initWithCoder
+    self.counter = [[Counter alloc] init];
+    self.eventTextField.text = self.counter.event;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,5 +61,10 @@
 - (IBAction)refreshButtonPushed:(id)sender {
     NSLog(@"Refresh button pushed");
     [self refresh];
+}
+
+- (IBAction)eventEdited:(id)sender {
+    self.counter.event = self.eventTextField.text;
+    NSLog(@"Event: \"%@\"", self.counter.event);
 }
 @end

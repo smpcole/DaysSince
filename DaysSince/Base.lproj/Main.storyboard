@@ -32,6 +32,9 @@
                                 <rect key="frame" x="16" y="165" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="eventEdited:" destination="BYZ-38-t0r" eventType="editingDidEndOnExit" id="zYa-UE-u0v"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KpP-2O-cMh">
                                 <rect key="frame" x="280" y="203" width="40" height="30"/>
@@ -56,6 +59,7 @@
                     </view>
                     <connections>
                         <outlet property="counterLabel" destination="XeX-1y-Di1" id="4Gr-Ww-hWd"/>
+                        <outlet property="eventTextField" destination="Ij5-kJ-Jby" id="NIs-vJ-Clt"/>
                         <outlet property="refreshButton" destination="M7M-fO-dwX" id="x64-av-ZPt"/>
                         <outlet property="timeSinceLabel" destination="2jf-7L-btG" id="U4J-wh-cXP"/>
                     </connections>

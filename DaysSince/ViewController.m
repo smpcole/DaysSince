@@ -25,6 +25,7 @@
     self.startTime = [NSDate date];
     NSLog(@"Start time set to %@", self.startTime);
     [self refresh];
+    [self saveCounterData];
 }
 
 - (void)refresh {
@@ -81,7 +82,8 @@
 }
 
 - (IBAction)eventEdited:(id)sender {
-    // TODO: write counter data
+    NSLog(@"Event updated to \"%@\"", self.eventTextField.text);
+    [self saveCounterData];
 }
 
 - (BOOL)saveCounterData {

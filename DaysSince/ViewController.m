@@ -84,4 +84,22 @@
     // TODO: write counter data
 }
 
+- (BOOL)saveCounterData {
+    
+    Counter *counter = [[Counter alloc] initWithStartTime:[self startTime] event:self.eventTextField.text];
+    NSError *error = nil;
+    
+    NSData *counterData = [NSKeyedArchiver archivedDataWithRootObject:counter];
+    
+    NSString *counterPath = [ViewController counterPath];
+    
+    BOOL success = [counterData writeToFile:counterPath options:NSDataWritingFileProtectionNone error:&error];
+    
+    if(success)
+        NSLog(@"Successfully wrote counter data to file %@", counterPath);
+
+    
+    return success;
+}
+
 @end

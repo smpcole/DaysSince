@@ -49,7 +49,19 @@
     self.refreshButton.hidden = YES;
 #endif
     
-    [self reset];
+    NSString *counterPath = [ViewController counterPath];
+    if([[NSFileManager defaultManager] fileExistsAtPath:counterPath]) {
+        
+        NSLog(@"Loading counter from file %@", counterPath);
+        Counter *counter = [NSKeyedUnarchiver unarchiveObjectWithFile:counterPath];
+        self.eventTextField.text = counter.event;
+        self.startTime = counter.startTime;
+        NSLog(@"Counter successfully loaded");
+        [self refresh];
+        
+    }
+    else
+        [self reset];
     
 }
 

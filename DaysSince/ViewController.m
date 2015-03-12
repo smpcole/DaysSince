@@ -7,12 +7,19 @@
 //
 
 #import "ViewController.h"
+#import "AppDelegate.h"
 
 @interface ViewController ()
 
 @end
 
 @implementation ViewController
+
++ (NSString *)counterPath {
+    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    NSURL *docsDirectory = [delegate applicationDocumentsDirectory];
+    return [[docsDirectory URLByAppendingPathComponent:@"counter"] path];
+}
 
 - (void)reset {
     self.startTime = [NSDate date];

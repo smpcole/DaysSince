@@ -24,5 +24,7 @@
 - (void)refresh;
 - (void)reset;
 
++ (NSString *)counterPath;
+
 @end
 

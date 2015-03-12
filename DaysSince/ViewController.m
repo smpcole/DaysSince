@@ -80,4 +80,8 @@
     [self refresh];
 }
 
+- (IBAction)eventEdited:(id)sender {
+    // TODO: write counter data
+}
+
 @end

@@ -27,6 +27,7 @@
 		22B15D731AB40353007395C3 /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B15D721AB40353007395C3 /* TodayViewController.m */; };
 		22B15D751AB40353007395C3 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22B15D741AB40353007395C3 /* MainInterface.storyboard */; };
 		22B15D781AB40353007395C3 /* DaysSinceWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 22B15D6A1AB40353007395C3 /* DaysSinceWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		22B15D7D1AB408A1007395C3 /* DaysSinceShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B15D411AB3F964007395C3 /* DaysSinceShared.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,6 +160,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22B15D7D1AB408A1007395C3 /* DaysSinceShared.framework in Frameworks */,
 				22B15D6D1AB40353007395C3 /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

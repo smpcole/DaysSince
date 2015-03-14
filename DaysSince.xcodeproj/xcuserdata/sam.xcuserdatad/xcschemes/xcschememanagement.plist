@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>DaysSinceShared.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -18,6 +23,16 @@
 			<true/>
 		</dict>
 		<key>2253E8A51AAE850C00A16E58</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>22B15D401AB3F964007395C3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>22B15D4A1AB3F964007395C3</key>
 		<dict>
 			<key>primary</key>
 			<true/>

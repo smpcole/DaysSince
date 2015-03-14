@@ -14,6 +14,11 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>DaysSinceWidget.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -33,6 +38,11 @@
 			<true/>
 		</dict>
 		<key>22B15D4A1AB3F964007395C3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>22B15D691AB40353007395C3</key>
 		<dict>
 			<key>primary</key>
 			<true/>

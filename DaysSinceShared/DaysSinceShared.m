@@ -8,3 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "DaysSinceShared.h"
+
+NSURL *applicationDocumentsDirectory() {
+    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}

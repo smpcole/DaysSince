@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "AppDelegate.h"
+#import "DaysSinceShared.h"
 
 @interface ViewController ()
 
@@ -16,8 +16,7 @@
 @implementation ViewController
 
 + (NSString *)counterPath {
-    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-    NSURL *docsDirectory = [delegate applicationDocumentsDirectory];
+    NSURL *docsDirectory = applicationDocumentsDirectory();
     return [[docsDirectory URLByAppendingPathComponent:@"counter"] path];
 }
 

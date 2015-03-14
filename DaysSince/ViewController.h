@@ -26,7 +26,5 @@
 - (void)reset;
 - (BOOL)saveCounterData;
 
-+ (NSString *)counterPath;
-
 @end
 

@@ -15,11 +15,6 @@
 
 @implementation ViewController
 
-+ (NSString *)counterPath {
-    NSURL *docsDirectory = applicationDocumentsDirectory();
-    return [[docsDirectory URLByAppendingPathComponent:@"counter"] path];
-}
-
 - (void)reset {
     self.startTime = [NSDate date];
     NSLog(@"Start time set to %@", self.startTime);
@@ -49,7 +44,7 @@
     self.refreshButton.hidden = YES;
 #endif
     
-    NSString *counterPath = [ViewController counterPath];
+    NSString *counterPath = [Counter pathToStoredCounter];
     if([[NSFileManager defaultManager] fileExistsAtPath:counterPath]) {
         
         NSLog(@"Loading counter from file %@", counterPath);
@@ -92,7 +87,7 @@
     
     NSData *counterData = [NSKeyedArchiver archivedDataWithRootObject:counter];
     
-    NSString *counterPath = [ViewController counterPath];
+    NSString *counterPath = [Counter pathToStoredCounter];
     
     BOOL success = [counterData writeToFile:counterPath options:NSDataWritingFileProtectionNone error:&error];
     

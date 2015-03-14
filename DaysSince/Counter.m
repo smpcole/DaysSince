@@ -7,6 +7,7 @@
 //
 
 #import "Counter.h"
+#import "DaysSinceShared.h"
 
 @implementation Counter
 
@@ -36,6 +37,11 @@
 
 - (NSString *)description {
     return [NSString stringWithFormat:@"Event: %@\nStart time: %@", self.event, self.startTime];
+}
+
++ (NSString *)pathToStoredCounter {
+    NSURL *docsDirectory = applicationDocumentsDirectory();
+    return [[docsDirectory URLByAppendingPathComponent:@"counter"] path];
 }
 
 @end

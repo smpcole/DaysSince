@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		22383A081AAFD57E008767C5 /* Counter.m in Sources */ = {isa = PBXBuildFile; fileRef = 22383A071AAFD57E008767C5 /* Counter.m */; };
 		2253E8901AAE850C00A16E58 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2253E88F1AAE850C00A16E58 /* main.m */; };
 		2253E8931AAE850C00A16E58 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2253E8921AAE850C00A16E58 /* AppDelegate.m */; };
 		2253E8961AAE850C00A16E58 /* DaysSince.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2253E8941AAE850C00A16E58 /* DaysSince.xcdatamodeld */; };
@@ -22,6 +21,8 @@
 		22B15D581AB3F964007395C3 /* DaysSinceShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B15D411AB3F964007395C3 /* DaysSinceShared.framework */; };
 		22B15D591AB3F964007395C3 /* DaysSinceShared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 22B15D411AB3F964007395C3 /* DaysSinceShared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		22B15D621AB3FB17007395C3 /* DaysSinceShared.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B15D611AB3FB17007395C3 /* DaysSinceShared.m */; };
+		22B15D641AB3FFDA007395C3 /* Counter.m in Sources */ = {isa = PBXBuildFile; fileRef = 22383A071AAFD57E008767C5 /* Counter.m */; };
+		22B15D651AB3FFEA007395C3 /* Counter.h in Headers */ = {isa = PBXBuildFile; fileRef = 22383A061AAFD57E008767C5 /* Counter.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,8 +71,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		22383A061AAFD57E008767C5 /* Counter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Counter.h; sourceTree = "<group>"; };
-		22383A071AAFD57E008767C5 /* Counter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Counter.m; sourceTree = "<group>"; };
+		22383A061AAFD57E008767C5 /* Counter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Counter.h; path = ../DaysSince/Counter.h; sourceTree = "<group>"; };
+		22383A071AAFD57E008767C5 /* Counter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Counter.m; path = ../DaysSince/Counter.m; sourceTree = "<group>"; };
 		2253E88A1AAE850C00A16E58 /* DaysSince.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DaysSince.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2253E88E1AAE850C00A16E58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2253E88F1AAE850C00A16E58 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -163,8 +164,6 @@
 				2253E89F1AAE850C00A16E58 /* LaunchScreen.xib */,
 				2253E8941AAE850C00A16E58 /* DaysSince.xcdatamodeld */,
 				2253E88D1AAE850C00A16E58 /* Supporting Files */,
-				22383A061AAFD57E008767C5 /* Counter.h */,
-				22383A071AAFD57E008767C5 /* Counter.m */,
 			);
 			path = DaysSince;
 			sourceTree = "<group>";
@@ -198,6 +197,8 @@
 		22B15D421AB3F964007395C3 /* DaysSinceShared */ = {
 			isa = PBXGroup;
 			children = (
+				22383A061AAFD57E008767C5 /* Counter.h */,
+				22383A071AAFD57E008767C5 /* Counter.m */,
 				22B15D451AB3F964007395C3 /* DaysSinceShared.h */,
 				22B15D431AB3F964007395C3 /* Supporting Files */,
 				22B15D611AB3FB17007395C3 /* DaysSinceShared.m */,
@@ -238,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22B15D461AB3F964007395C3 /* DaysSinceShared.h in Headers */,
+				22B15D651AB3FFEA007395C3 /* Counter.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,7 +408,6 @@
 				2253E8931AAE850C00A16E58 /* AppDelegate.m in Sources */,
 				2253E8901AAE850C00A16E58 /* main.m in Sources */,
 				2253E8991AAE850C00A16E58 /* ViewController.m in Sources */,
-				22383A081AAFD57E008767C5 /* Counter.m in Sources */,
 				2253E8961AAE850C00A16E58 /* DaysSince.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -423,6 +424,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22B15D641AB3FFDA007395C3 /* Counter.m in Sources */,
 				22B15D621AB3FB17007395C3 /* DaysSinceShared.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -89,10 +89,10 @@
 		2253E8A61AAE850C00A16E58 /* DaysSinceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DaysSinceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2253E8AB1AAE850C00A16E58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2253E8AC1AAE850C00A16E58 /* DaysSinceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DaysSinceTests.m; sourceTree = "<group>"; };
-		22980DAF1AB7B463002594D2 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootViewController.h; path = DaysSince/RootViewController.h; sourceTree = "<group>"; };
-		22980DB01AB7B463002594D2 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RootViewController.m; path = DaysSince/RootViewController.m; sourceTree = "<group>"; };
-		22980DB21AB7BBCE002594D2 /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataSource.h; path = DaysSince/DataSource.h; sourceTree = "<group>"; };
-		22980DB31AB7BBCE002594D2 /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataSource.m; path = DaysSince/DataSource.m; sourceTree = "<group>"; };
+		22980DAF1AB7B463002594D2 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		22980DB01AB7B463002594D2 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		22980DB21AB7BBCE002594D2 /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
+		22980DB31AB7BBCE002594D2 /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
 		22B15D411AB3F964007395C3 /* DaysSinceShared.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DaysSinceShared.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		22B15D441AB3F964007395C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22B15D451AB3F964007395C3 /* DaysSinceShared.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DaysSinceShared.h; sourceTree = "<group>"; };
@@ -139,10 +139,6 @@
 		2253E8811AAE850C00A16E58 = {
 			isa = PBXGroup;
 			children = (
-				22980DB21AB7BBCE002594D2 /* DataSource.h */,
-				22980DB31AB7BBCE002594D2 /* DataSource.m */,
-				22980DAF1AB7B463002594D2 /* RootViewController.h */,
-				22980DB01AB7B463002594D2 /* RootViewController.m */,
 				2253E88C1AAE850C00A16E58 /* DaysSince */,
 				2253E8A91AAE850C00A16E58 /* DaysSinceTests */,
 				22B15D421AB3F964007395C3 /* DaysSinceShared */,
@@ -165,6 +161,10 @@
 		2253E88C1AAE850C00A16E58 /* DaysSince */ = {
 			isa = PBXGroup;
 			children = (
+				22980DB21AB7BBCE002594D2 /* DataSource.h */,
+				22980DB31AB7BBCE002594D2 /* DataSource.m */,
+				22980DAF1AB7B463002594D2 /* RootViewController.h */,
+				22980DB01AB7B463002594D2 /* RootViewController.m */,
 				2253E8911AAE850C00A16E58 /* AppDelegate.h */,
 				2253E8921AAE850C00A16E58 /* AppDelegate.m */,
 				2253E8971AAE850C00A16E58 /* ViewController.h */,

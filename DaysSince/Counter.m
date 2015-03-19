@@ -39,9 +39,4 @@
     return [NSString stringWithFormat:@"Event: %@\nStart time: %@", self.event, self.startTime];
 }
 
-+ (NSString *)pathToStoredCounter {
-    NSURL *docsDirectory = applicationDocumentsDirectory();
-    return [[docsDirectory URLByAppendingPathComponent:@"counter"] path];
-}
-
 @end

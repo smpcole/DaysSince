@@ -44,7 +44,7 @@
     self.refreshButton.hidden = YES;
 #endif
     
-    NSString *counterPath = [Counter pathToStoredCounter];
+    NSString *counterPath = pathToStoredCounter(0);
     if([[NSFileManager defaultManager] fileExistsAtPath:counterPath]) {
         
         NSLog(@"Loading counter from file %@", counterPath);
@@ -87,7 +87,7 @@
     
     NSData *counterData = [NSKeyedArchiver archivedDataWithRootObject:counter];
     
-    NSString *counterPath = [Counter pathToStoredCounter];
+    NSString *counterPath = pathToStoredCounter(0);
     
     BOOL success = [counterData writeToFile:counterPath options:NSDataWritingFileProtectionNone error:&error];
     

@@ -18,3 +18,5 @@ FOUNDATION_EXPORT const unsigned char DaysSinceSharedVersionString[];
 
 
 NSURL *applicationDocumentsDirectory();
+
+NSString *pathToStoredCounter(int counterNum);

@@ -12,3 +12,9 @@
 NSURL *applicationDocumentsDirectory() {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
+
+NSString *pathToStoredCounter(int counterNum) {
+    NSURL *docsDirectory = applicationDocumentsDirectory();
+    return [[docsDirectory URLByAppendingPathComponent:[NSString stringWithFormat:@"counter%d", counterNum]] path];
+
+}

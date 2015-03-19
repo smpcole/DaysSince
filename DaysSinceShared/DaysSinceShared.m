@@ -18,3 +18,12 @@ NSString *pathToStoredCounter(int counterNum) {
     return [[docsDirectory URLByAppendingPathComponent:[NSString stringWithFormat:@"counter%d", counterNum]] path];
 
 }
+
+int numStoredCounters() {
+    int numCounters = 0;
+    
+    while([[NSFileManager defaultManager] fileExistsAtPath:pathToStoredCounter(numCounters)])
+        numCounters++;
+    
+    return numCounters;
+}

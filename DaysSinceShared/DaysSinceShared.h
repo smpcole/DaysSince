@@ -20,3 +20,9 @@ FOUNDATION_EXPORT const unsigned char DaysSinceSharedVersionString[];
 NSURL *applicationDocumentsDirectory();
 
 NSString *pathToStoredCounter(int counterNum);
+
+/* Enumerate stored counters on disk
+ * 
+ * Should only be called on application startup, at which point the value should be stored and maintained by the view controller.
+ */
+int numStoredCounters();

@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ViewController.h"
 
 @class ViewController;
 
 @interface DataSource : NSObject <UIPageViewControllerDataSource>
 
 @property int numViews;
+
+- (ViewController *)viewControllerAtIndex:(int)index storyboard:(UIStoryboard *)storyboard;
 
 @end

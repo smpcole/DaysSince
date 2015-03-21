@@ -8,6 +8,7 @@
 
 #import "DataSource.h"
 #import "DaysSinceShared.h"
+#import "ViewController.h"
 
 @implementation DataSource
 
@@ -18,6 +19,12 @@
         NSLog(@"%d counter(s) found on disk", self.numViews);
     }
     return self;
+}
+
+- (ViewController *)viewControllerAtIndex:(int)index storyboard:(UIStoryboard *)storyboard {
+    ViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"ViewController"];
+    viewController.counterPath = pathToStoredCounter(index);
+    return viewController;
 }
 
 @end

@@ -27,4 +27,14 @@
     return viewController;
 }
 
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
+    int nextIndex = (((ViewController *)viewController).counterIndex + 1) % self.numViews;
+    return [self viewControllerAtIndex:nextIndex storyboard:viewController.storyboard];
+}
+
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
+    int nextIndex = (((ViewController *)viewController).counterIndex - 1) % self.numViews;
+    return [self viewControllerAtIndex:nextIndex storyboard:viewController.storyboard];
+}
+
 @end

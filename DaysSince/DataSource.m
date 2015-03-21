@@ -23,7 +23,7 @@
 
 - (ViewController *)viewControllerAtIndex:(int)index storyboard:(UIStoryboard *)storyboard {
     ViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"ViewController"];
-    viewController.counterPath = pathToStoredCounter(index);
+    viewController.counterIndex = index;
     return viewController;
 }
 

@@ -44,8 +44,8 @@
     self.refreshButton.hidden = YES;
 #endif
     
-    NSLog(@"counterPath == %@", self.counterPath);
-    self.counterPath = pathToStoredCounter(0);
+    self.counterIndex = 0;  // For now, just set to 0
+    self.counterPath = pathToStoredCounter(self.counterIndex);
     if([[NSFileManager defaultManager] fileExistsAtPath:self.counterPath]) {
         
         NSLog(@"Loading counter from file %@", self.counterPath);

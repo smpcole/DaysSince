@@ -19,6 +19,7 @@
 @property NSDate *startTime;
 
 @property NSString *counterPath;
+@property int counterIndex;
 
 - (IBAction)resetButtonPushed:(id)sender;
 - (IBAction)refreshButtonPushed:(id)sender;

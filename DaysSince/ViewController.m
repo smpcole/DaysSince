@@ -38,7 +38,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 #ifdef DEBUG
-    NSLog(@"Debug mode");
     [self.timeSinceLabel setText:@"seconds since"];
 #else
     self.refreshButton.hidden = YES;

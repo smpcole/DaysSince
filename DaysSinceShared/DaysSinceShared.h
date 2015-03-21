@@ -21,6 +21,8 @@ NSURL *applicationDocumentsDirectory();
 
 NSString *pathToStoredCounter(int counterNum);
 
+NSString *pathToCurrentViewIndex();
+
 /* Enumerate stored counters on disk
  * 
  * Should only be called on application startup, at which point the value should be stored and maintained by the view controller.

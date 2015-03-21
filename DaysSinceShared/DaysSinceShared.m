@@ -27,3 +27,7 @@ int numStoredCounters() {
     
     return numCounters;
 }
+
+NSString *pathToCurrentViewIndex() {
+    return [[applicationDocumentsDirectory() URLByAppendingPathComponent:@"currentView"] path];
+}

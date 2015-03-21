@@ -12,4 +12,6 @@
 
 @interface DataSource : NSObject <UIPageViewControllerDataSource>
 
+@property int numViews;
+
 @end

@@ -43,7 +43,6 @@
     self.refreshButton.hidden = YES;
 #endif
     
-    self.counterIndex = 0;  // For now, just set to 0
     self.counterPath = pathToStoredCounter(self.counterIndex);
     if([[NSFileManager defaultManager] fileExistsAtPath:self.counterPath]) {
         

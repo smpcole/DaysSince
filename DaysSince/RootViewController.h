@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DataSource.h"
 
 @interface RootViewController : UIViewController <UIPageViewControllerDelegate>
+
+@property DataSource *dataSource;
 
 @end

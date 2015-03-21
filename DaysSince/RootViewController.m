@@ -17,6 +17,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStylePageCurl navigationOrientation:UIPageViewControllerNavigationOrientationVertical options:nil];
+    self.pageViewController.delegate = self;
+    
+    self.dataSource = [[DataSource alloc] init];
+    self.pageViewController.dataSource = self.dataSource;
+    
+    NSArray *viewControllers = @[[self.dataSource viewControllerAtIndex:0 storyboard:self.storyboard]];
+    [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
+    
+    // TODO: find out exactly what these do
+    [self addChildViewController:self.pageViewController];
+    [self.view addSubview:self.pageViewController.view];
+    
+    // Add the page view controller's gesture recognizers to the book view controller's view so that the gestures are started more easily.
+    // Not sure if I actually need this...
+    self.view.gestureRecognizers = self.pageViewController.gestureRecognizers;
+
 }
 
 - (void)didReceiveMemoryWarning {

@@ -12,5 +12,6 @@
 @interface RootViewController : UIViewController <UIPageViewControllerDelegate>
 
 @property DataSource *dataSource;
+@property UIPageViewController *pageViewController;
 
 @end

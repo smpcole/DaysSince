@@ -15,6 +15,4 @@
 
 - (id)initWithStartTime:(NSDate *)startTime event:(NSString*)event;
 
-+ (NSString *)pathToStoredCounter;
-
 @end

@@ -15,6 +15,8 @@
 		2253E89E1AAE850C00A16E58 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2253E89D1AAE850C00A16E58 /* Images.xcassets */; };
 		2253E8A11AAE850C00A16E58 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2253E89F1AAE850C00A16E58 /* LaunchScreen.xib */; };
 		2253E8AD1AAE850C00A16E58 /* DaysSinceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2253E8AC1AAE850C00A16E58 /* DaysSinceTests.m */; };
+		22980DB11AB7B463002594D2 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22980DB01AB7B463002594D2 /* RootViewController.m */; };
+		22980DB41AB7BBCE002594D2 /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 22980DB31AB7BBCE002594D2 /* DataSource.m */; };
 		22B15D461AB3F964007395C3 /* DaysSinceShared.h in Headers */ = {isa = PBXBuildFile; fileRef = 22B15D451AB3F964007395C3 /* DaysSinceShared.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		22B15D4C1AB3F964007395C3 /* DaysSinceShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B15D411AB3F964007395C3 /* DaysSinceShared.framework */; };
 		22B15D551AB3F964007395C3 /* DaysSinceSharedTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B15D541AB3F964007395C3 /* DaysSinceSharedTests.m */; };
@@ -87,6 +89,10 @@
 		2253E8A61AAE850C00A16E58 /* DaysSinceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DaysSinceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2253E8AB1AAE850C00A16E58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2253E8AC1AAE850C00A16E58 /* DaysSinceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DaysSinceTests.m; sourceTree = "<group>"; };
+		22980DAF1AB7B463002594D2 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		22980DB01AB7B463002594D2 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		22980DB21AB7BBCE002594D2 /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
+		22980DB31AB7BBCE002594D2 /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
 		22B15D411AB3F964007395C3 /* DaysSinceShared.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DaysSinceShared.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		22B15D441AB3F964007395C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22B15D451AB3F964007395C3 /* DaysSinceShared.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DaysSinceShared.h; sourceTree = "<group>"; };
@@ -155,6 +161,10 @@
 		2253E88C1AAE850C00A16E58 /* DaysSince */ = {
 			isa = PBXGroup;
 			children = (
+				22980DB21AB7BBCE002594D2 /* DataSource.h */,
+				22980DB31AB7BBCE002594D2 /* DataSource.m */,
+				22980DAF1AB7B463002594D2 /* RootViewController.h */,
+				22980DB01AB7B463002594D2 /* RootViewController.m */,
 				2253E8911AAE850C00A16E58 /* AppDelegate.h */,
 				2253E8921AAE850C00A16E58 /* AppDelegate.m */,
 				2253E8971AAE850C00A16E58 /* ViewController.h */,
@@ -407,8 +417,10 @@
 			files = (
 				2253E8931AAE850C00A16E58 /* AppDelegate.m in Sources */,
 				2253E8901AAE850C00A16E58 /* main.m in Sources */,
+				22980DB41AB7BBCE002594D2 /* DataSource.m in Sources */,
 				2253E8991AAE850C00A16E58 /* ViewController.m in Sources */,
 				2253E8961AAE850C00A16E58 /* DaysSince.xcdatamodeld in Sources */,
+				22980DB11AB7B463002594D2 /* RootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -729,6 +741,7 @@
 				22B15D5B1AB3F964007395C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		22B15D601AB3F964007395C3 /* Build configuration list for PBXNativeTarget "DaysSinceSharedTests" */ = {
 			isa = XCConfigurationList;
@@ -737,6 +750,7 @@
 				22B15D5D1AB3F964007395C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

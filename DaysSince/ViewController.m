@@ -38,17 +38,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 #ifdef DEBUG
-    NSLog(@"Debug mode");
     [self.timeSinceLabel setText:@"seconds since"];
 #else
     self.refreshButton.hidden = YES;
 #endif
     
-    NSString *counterPath = [Counter pathToStoredCounter];
-    if([[NSFileManager defaultManager] fileExistsAtPath:counterPath]) {
+    self.counterPath = pathToStoredCounter(self.counterIndex);
+    if([[NSFileManager defaultManager] fileExistsAtPath:self.counterPath]) {
         
-        NSLog(@"Loading counter from file %@", counterPath);
-        Counter *counter = [NSKeyedUnarchiver unarchiveObjectWithFile:counterPath];
+        NSLog(@"Loading counter from file %@", self.counterPath);
+        Counter *counter = [NSKeyedUnarchiver unarchiveObjectWithFile:self.counterPath];
         self.eventTextField.text = counter.event;
         self.startTime = counter.startTime;
         NSLog(@"Counter successfully loaded");
@@ -87,12 +86,10 @@
     
     NSData *counterData = [NSKeyedArchiver archivedDataWithRootObject:counter];
     
-    NSString *counterPath = [Counter pathToStoredCounter];
-    
-    BOOL success = [counterData writeToFile:counterPath options:NSDataWritingFileProtectionNone error:&error];
+    BOOL success = [counterData writeToFile:self.counterPath options:NSDataWritingFileProtectionNone error:&error];
     
     if(success)
-        NSLog(@"Successfully wrote counter data to file %@", counterPath);
+        NSLog(@"Successfully wrote counter data to file %@", self.counterPath);
 
     
     return success;

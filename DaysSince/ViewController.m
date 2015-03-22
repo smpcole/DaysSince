@@ -91,6 +91,11 @@
     [self saveCounterData];
 }
 
+- (IBAction)plusButtonPushed:(id)sender {
+    NSLog(@"+ button pushed");
+    
+}
+
 - (BOOL)saveCounterData {
     
     Counter *counter = [[Counter alloc] initWithStartTime:[self startTime] event:self.eventTextField.text];

@@ -13,14 +13,14 @@ NSURL *applicationDocumentsDirectory() {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
-NSString *pathToStoredCounter(int counterNum) {
+NSString *pathToStoredCounter(NSInteger counterNum) {
     NSURL *docsDirectory = applicationDocumentsDirectory();
-    return [[docsDirectory URLByAppendingPathComponent:[NSString stringWithFormat:@"counter%d", counterNum]] path];
+    return [[docsDirectory URLByAppendingPathComponent:[NSString stringWithFormat:@"counter%ld", (long)counterNum]] path];
 
 }
 
-int numStoredCounters() {
-    int numCounters = 0;
+NSInteger numStoredCounters() {
+    NSInteger numCounters = 0;
     
     while([[NSFileManager defaultManager] fileExistsAtPath:pathToStoredCounter(numCounters)])
         numCounters++;

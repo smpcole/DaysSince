@@ -16,24 +16,24 @@
     self = [super init];
     if(self) {
         self.numViews = numStoredCounters();
-        NSLog(@"%d counter(s) found on disk", self.numViews);
+        NSLog(@"%ld counter(s) found on disk", (long)self.numViews);
     }
     return self;
 }
 
-- (ViewController *)viewControllerAtIndex:(int)index storyboard:(UIStoryboard *)storyboard {
+- (ViewController *)viewControllerAtIndex:(NSInteger)index storyboard:(UIStoryboard *)storyboard {
     ViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"ViewController"];
     viewController.counterIndex = index;
     return viewController;
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
-    int nextIndex = (((ViewController *)viewController).counterIndex + 1) % self.numViews;
+    NSInteger nextIndex = (((ViewController *)viewController).counterIndex + 1) % self.numViews;
     return [self viewControllerAtIndex:nextIndex storyboard:viewController.storyboard];
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
-    int nextIndex = (((ViewController *)viewController).counterIndex - 1) % self.numViews;
+    NSInteger nextIndex = (((ViewController *)viewController).counterIndex - 1) % self.numViews;
     return [self viewControllerAtIndex:nextIndex storyboard:viewController.storyboard];
 }
 

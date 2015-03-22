@@ -25,13 +25,13 @@
 - (void)refresh {
     
     // # seconds since startTime
-    int timeElapsed = [[NSDate date] timeIntervalSinceDate:self.startTime];
-    NSLog(@"%d seconds since start time", timeElapsed);
+    NSInteger timeElapsed = [[NSDate date] timeIntervalSinceDate:self.startTime];
+    NSLog(@"%ld seconds since start time", (long)timeElapsed);
 #ifndef DEBUG
     // Convert to days
     timeElapsed /= (60 * 60 * 24);
 #endif
-    [self.counterLabel setText:[NSString stringWithFormat:@"%d", timeElapsed]];
+    [self.counterLabel setText:[NSString stringWithFormat:@"%ld", (long)timeElapsed]];
 }
 
 - (void)viewDidLoad {

@@ -57,6 +57,18 @@
     else
         [self reset];
     
+    // This is the most recent view to load, so save its index in currentView
+    NSNumber *currentView = [NSNumber numberWithInteger:self.counterIndex];
+    NSError *error = nil;
+    
+    NSData *currentViewData = [NSKeyedArchiver archivedDataWithRootObject:currentView];
+    
+    BOOL success = [currentViewData writeToFile:pathToCurrentViewIndex() options:NSDataWritingFileProtectionNone error:&error];
+    
+    if(success)
+        NSLog(@"Successfully wrote counter index %ld to file %@", (long)self.counterIndex, pathToCurrentViewIndex());
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {

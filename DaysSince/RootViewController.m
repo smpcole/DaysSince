@@ -7,6 +7,7 @@
 //
 
 #import "RootViewController.h"
+#import "DaysSinceShared.h"
 
 @interface RootViewController ()
 
@@ -24,7 +25,14 @@
     self.dataSource = [[DataSource alloc] init];
     self.pageViewController.dataSource = self.dataSource;
     
-    NSArray *viewControllers = @[[self.dataSource viewControllerAtIndex:0 storyboard:self.storyboard]];
+    // Find the index of the last view displayed
+    NSInteger currentView = 0;
+    if([[NSFileManager defaultManager] fileExistsAtPath:pathToCurrentViewIndex()]) {
+        currentView = [[NSKeyedUnarchiver unarchiveObjectWithFile:pathToCurrentViewIndex()] integerValue];
+        NSLog(@"Loaded index of current view from %@\nIndex of current view == %ld", pathToCurrentViewIndex(), (long)currentView);
+    }
+    
+    NSArray *viewControllers = @[[self.dataSource viewControllerAtIndex:currentView storyboard:self.storyboard]];
     [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
     
     // TODO: find out exactly what these do

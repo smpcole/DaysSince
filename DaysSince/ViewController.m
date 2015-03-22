@@ -25,13 +25,13 @@
 - (void)refresh {
     
     // # seconds since startTime
-    int timeElapsed = [[NSDate date] timeIntervalSinceDate:self.startTime];
-    NSLog(@"%d seconds since start time", timeElapsed);
+    NSInteger timeElapsed = [[NSDate date] timeIntervalSinceDate:self.startTime];
+    NSLog(@"%ld seconds since start time", (long)timeElapsed);
 #ifndef DEBUG
     // Convert to days
     timeElapsed /= (60 * 60 * 24);
 #endif
-    [self.counterLabel setText:[NSString stringWithFormat:@"%d", timeElapsed]];
+    [self.counterLabel setText:[NSString stringWithFormat:@"%ld", (long)timeElapsed]];
 }
 
 - (void)viewDidLoad {
@@ -56,6 +56,18 @@
     }
     else
         [self reset];
+    
+    // This is the most recent view to load, so save its index in currentView
+    NSNumber *currentView = [NSNumber numberWithInteger:self.counterIndex];
+    NSError *error = nil;
+    
+    NSData *currentViewData = [NSKeyedArchiver archivedDataWithRootObject:currentView];
+    
+    BOOL success = [currentViewData writeToFile:pathToCurrentViewIndex() options:NSDataWritingFileProtectionNone error:&error];
+    
+    if(success)
+        NSLog(@"Successfully wrote counter index %ld to file %@", (long)self.counterIndex, pathToCurrentViewIndex());
+    
     
 }
 

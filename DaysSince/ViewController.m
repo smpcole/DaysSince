@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "DaysSinceShared.h"
+#import "DataSource.h"
 
 @interface ViewController ()
 
@@ -94,6 +95,21 @@
 - (IBAction)plusButtonPushed:(id)sender {
     NSLog(@"+ button pushed");
     
+    UIPageViewController *parent = (UIPageViewController *)self.parentViewController;
+    NSLog(@"Parent view controller: %@", parent);
+    
+    // Increase number of pages
+    DataSource *dataSource = parent.dataSource;
+    NSInteger numViews = ++dataSource.numViews;
+    
+    /* Display the new view
+     *
+     * When viewDidLoad is called, it will attempt to load a Counter from file counterN on disk,
+     * where N is the new index.  When it doesn't find the file, it will simply call reset, which
+     * will initialize a new Counter with default values and save it to disk.
+     */
+    NSArray *newView = @[[dataSource viewControllerAtIndex:numViews - 1 storyboard:self.storyboard]];
+    [parent setViewControllers:newView direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
 }
 
 - (BOOL)saveCounterData {

@@ -114,6 +114,24 @@
 
 - (IBAction)minusButtonPushed:(id)sender {
     NSLog(@"- button pushed");
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Confirm delete" message:@"Are you sure you want to delete this counter?" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *no = [UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleCancel handler:nil];
+    
+    // The actual deletion proc
+    void (^deleteProc)(UIAlertAction *) = ^(UIAlertAction *action) {
+        NSLog(@"Counter %ld will be deleted.", (long)self.counterIndex);
+
+        // TODO: write code here!
+        
+    };
+    
+    UIAlertAction *yes = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:deleteProc];
+    [alert addAction:no];
+    [alert addAction:yes];
+    
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (BOOL)saveCounterData {

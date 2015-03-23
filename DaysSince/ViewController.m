@@ -40,8 +40,10 @@
     // Do any additional setup after loading the view, typically from a nib.
 #ifdef DEBUG
     [self.timeSinceLabel setText:@"seconds since"];
+    self.fileLabel.text = [NSString stringWithFormat:@"File: counter%ld", (long)self.counterIndex];
 #else
     self.refreshButton.hidden = YES;
+    self.fileLabel.hidden = YES;
 #endif
     
     self.counterPath = pathToStoredCounter(self.counterIndex);

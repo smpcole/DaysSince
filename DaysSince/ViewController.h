@@ -25,6 +25,7 @@
 - (IBAction)refreshButtonPushed:(id)sender;
 - (IBAction)eventEdited:(id)sender;
 - (IBAction)plusButtonPushed:(id)sender;
+- (IBAction)minusButtonPushed:(id)sender;
 
 - (void)refresh;
 - (void)reset;

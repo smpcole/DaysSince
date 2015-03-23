@@ -112,6 +112,10 @@
     [parent setViewControllers:newView direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
 }
 
+- (IBAction)minusButtonPushed:(id)sender {
+    NSLog(@"- button pushed");
+}
+
 - (BOOL)saveCounterData {
     
     Counter *counter = [[Counter alloc] initWithStartTime:[self startTime] event:self.eventTextField.text];

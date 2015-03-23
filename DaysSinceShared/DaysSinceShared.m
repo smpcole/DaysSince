@@ -31,3 +31,11 @@ NSInteger numStoredCounters() {
 NSString *pathToCurrentViewIndex() {
     return [[applicationDocumentsDirectory() URLByAppendingPathComponent:@"currentView"] path];
 }
+
+BOOL removeStoredCounter(NSInteger counterNum) {
+    NSString *path = pathToStoredCounter(counterNum);
+    BOOL fileRemoved = [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
+    if(fileRemoved)
+        NSLog(@"Removed file %@", path);
+    return fileRemoved;
+}

@@ -102,7 +102,8 @@
     
     // Increase number of pages
     DataSource *dataSource = parent.dataSource;
-    NSInteger numViews = ++dataSource.numViews;
+    extern NSInteger numStoredCounters;
+    NSInteger numViews = ++numStoredCounters;
     
     /* Display the new view
      *

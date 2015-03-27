@@ -12,15 +12,6 @@
 
 @implementation DataSource
 
-- (id)init {
-    self = [super init];
-    if(self) {
-        self.numViews = calculateNumStoredCounters();
-        NSLog(@"%ld counter(s) found on disk", (long)self.numViews);
-    }
-    return self;
-}
-
 - (ViewController *)viewControllerAtIndex:(NSInteger)index storyboard:(UIStoryboard *)storyboard {
     ViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"ViewController"];
     viewController.counterIndex = index;
@@ -28,12 +19,14 @@
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
-    NSInteger nextIndex = (((ViewController *)viewController).counterIndex + 1) % self.numViews;
+    extern NSInteger numStoredCounters;
+    NSInteger nextIndex = (((ViewController *)viewController).counterIndex + 1) % numStoredCounters;
     return [self viewControllerAtIndex:nextIndex storyboard:viewController.storyboard];
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
-    NSInteger nextIndex = (((ViewController *)viewController).counterIndex - 1) % self.numViews;
+    extern NSInteger numStoredCounters;
+    NSInteger nextIndex = (((ViewController *)viewController).counterIndex - 1) % numStoredCounters;
     return [self viewControllerAtIndex:nextIndex storyboard:viewController.storyboard];
 }
 

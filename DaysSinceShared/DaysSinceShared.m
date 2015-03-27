@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "DaysSinceShared.h"
 
+NSInteger numStoredCounters = 0;
+
 NSURL *applicationDocumentsDirectory() {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
@@ -20,12 +22,15 @@ NSString *pathToStoredCounter(NSInteger counterNum) {
 }
 
 NSInteger calculateNumStoredCounters() {
-    NSInteger numCounters = 0;
+    extern NSInteger numStoredCounters;
+    numStoredCounters = 0;
     
-    while([[NSFileManager defaultManager] fileExistsAtPath:pathToStoredCounter(numCounters)])
-        numCounters++;
+    while([[NSFileManager defaultManager] fileExistsAtPath:pathToStoredCounter(numStoredCounters)])
+        numStoredCounters++;
     
-    return numCounters;
+    NSLog(@"%ld counters(s) found on disk.", (long)numStoredCounters);
+    
+    return numStoredCounters;
 }
 
 NSString *pathToCurrentViewIndex() {

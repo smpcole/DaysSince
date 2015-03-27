@@ -21,6 +21,9 @@
 #ifdef DEBUG
     NSLog(@"Debug mode");
 #endif
+    
+    calculateNumStoredCounters();
+    
     return YES;
 }
 

@@ -15,7 +15,7 @@
 - (id)init {
     self = [super init];
     if(self) {
-        self.numViews = numStoredCounters();
+        self.numViews = calculateNumStoredCounters();
         NSLog(@"%ld counter(s) found on disk", (long)self.numViews);
     }
     return self;

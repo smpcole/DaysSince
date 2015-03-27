@@ -19,7 +19,7 @@ NSString *pathToStoredCounter(NSInteger counterNum) {
 
 }
 
-NSInteger numStoredCounters() {
+NSInteger calculateNumStoredCounters() {
     NSInteger numCounters = 0;
     
     while([[NSFileManager defaultManager] fileExistsAtPath:pathToStoredCounter(numCounters)])

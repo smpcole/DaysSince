@@ -125,8 +125,29 @@
     // The actual deletion proc
     void (^deleteProc)(UIAlertAction *) = ^(UIAlertAction *action) {
         NSLog(@"Counter %ld will be deleted.", (long)self.counterIndex);
-
-        // TODO: write code here!
+        
+        // Delete the counter at this index
+        removeStoredCounter(self.counterIndex);
+        
+        // Decrement remaining indices to fill in the hole
+        extern NSInteger numStoredCounters;
+        for(NSInteger i = self.counterIndex + 1; i < numStoredCounters; i++)
+            [[NSFileManager defaultManager] moveItemAtPath:pathToStoredCounter(i) toPath:pathToStoredCounter(i - 1) error:nil
+             ];
+        numStoredCounters--;
+        
+        // If numStoredCounters == 0 (i.e., we just deleted the last counter), then a new Counter will be saved to counter0
+        // when we attempt to display the nonexistent counter stored in counter0.
+        // Hence, we treat the case when there are no more stored counters as if there were 1 stored counter.
+        if(!numStoredCounters)
+            numStoredCounters = 1;
+        
+        // Display the previous view
+        UIPageViewController *pageViewController = (UIPageViewController *)self.parentViewController;
+        ViewController *prevPage = (ViewController *)[pageViewController.dataSource pageViewController:pageViewController viewControllerBeforeViewController:self];
+        [pageViewController setViewControllers:@[prevPage] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
+        
+        NSLog(@"counter%ld deleted\n%ld counter(s) remaining", (long)self.counterIndex, (long)numStoredCounters);
         
     };
     

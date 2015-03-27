@@ -13,8 +13,6 @@
 
 @interface DataSource : NSObject <UIPageViewControllerDataSource>
 
-@property NSInteger numViews;
-
 - (ViewController *)viewControllerAtIndex:(NSInteger)index storyboard:(UIStoryboard *)storyboard;
 
 @end

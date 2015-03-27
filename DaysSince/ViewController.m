@@ -40,8 +40,10 @@
     // Do any additional setup after loading the view, typically from a nib.
 #ifdef DEBUG
     [self.timeSinceLabel setText:@"seconds since"];
+    self.fileLabel.text = [NSString stringWithFormat:@"File: counter%ld", (long)self.counterIndex];
 #else
     self.refreshButton.hidden = YES;
+    self.fileLabel.hidden = YES;
 #endif
     
     self.counterPath = pathToStoredCounter(self.counterIndex);
@@ -100,7 +102,8 @@
     
     // Increase number of pages
     DataSource *dataSource = parent.dataSource;
-    NSInteger numViews = ++dataSource.numViews;
+    extern NSInteger numStoredCounters;
+    NSInteger numViews = ++numStoredCounters;
     
     /* Display the new view
      *
@@ -110,6 +113,49 @@
      */
     NSArray *newView = @[[dataSource viewControllerAtIndex:numViews - 1 storyboard:self.storyboard]];
     [parent setViewControllers:newView direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
+}
+
+- (IBAction)minusButtonPushed:(id)sender {
+    NSLog(@"- button pushed");
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Confirm delete" message:@"Are you sure you want to delete this counter?" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *no = [UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleCancel handler:nil];
+    
+    // The actual deletion proc
+    void (^deleteProc)(UIAlertAction *) = ^(UIAlertAction *action) {
+        NSLog(@"Counter %ld will be deleted.", (long)self.counterIndex);
+        
+        // Delete the counter at this index
+        removeStoredCounter(self.counterIndex);
+        
+        // Decrement remaining indices to fill in the hole
+        extern NSInteger numStoredCounters;
+        for(NSInteger i = self.counterIndex + 1; i < numStoredCounters; i++)
+            [[NSFileManager defaultManager] moveItemAtPath:pathToStoredCounter(i) toPath:pathToStoredCounter(i - 1) error:nil
+             ];
+        numStoredCounters--;
+        
+        // If numStoredCounters == 0 (i.e., we just deleted the last counter), then a new Counter will be saved to counter0
+        // when we attempt to display the nonexistent counter stored in counter0.
+        // Hence, we treat the case when there are no more stored counters as if there were 1 stored counter.
+        if(!numStoredCounters)
+            numStoredCounters = 1;
+        
+        // Display the previous view
+        UIPageViewController *pageViewController = (UIPageViewController *)self.parentViewController;
+        ViewController *prevPage = (ViewController *)[pageViewController.dataSource pageViewController:pageViewController viewControllerBeforeViewController:self];
+        [pageViewController setViewControllers:@[prevPage] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
+        
+        NSLog(@"counter%ld deleted\n%ld counter(s) remaining", (long)self.counterIndex, (long)numStoredCounters);
+        
+    };
+    
+    UIAlertAction *yes = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:deleteProc];
+    [alert addAction:no];
+    [alert addAction:yes];
+    
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (BOOL)saveCounterData {

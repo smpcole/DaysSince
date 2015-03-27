@@ -17,6 +17,8 @@ FOUNDATION_EXPORT const unsigned char DaysSinceSharedVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <DaysSinceShared/PublicHeader.h>
 
 
+extern NSInteger numStoredCounters;
+
 NSURL *applicationDocumentsDirectory();
 
 NSString *pathToStoredCounter(NSInteger counterNum);
@@ -27,4 +29,6 @@ NSString *pathToCurrentViewIndex();
  * 
  * Should only be called on application startup, at which point the value should be stored and maintained by the view controller.
  */
-NSInteger numStoredCounters();
+NSInteger calculateNumStoredCounters();
+
+BOOL removeStoredCounter(NSInteger counterNum);

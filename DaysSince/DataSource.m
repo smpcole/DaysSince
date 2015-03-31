@@ -26,7 +26,8 @@
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
     extern NSInteger numStoredCounters;
-    NSInteger nextIndex = (((ViewController *)viewController).counterIndex - 1) % numStoredCounters;
+    NSInteger currentIndex = ((ViewController *)viewController).counterIndex;
+    NSInteger nextIndex = currentIndex ? currentIndex - 1 : numStoredCounters - 1;
     return [self viewControllerAtIndex:nextIndex storyboard:viewController.storyboard];
 }
 

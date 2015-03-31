@@ -57,8 +57,11 @@
         [self refresh];
         
     }
-    else
+    else {
+        // We are saving a new counter to disk, so increment numStoredCounters
+        numStoredCounters++;
         [self reset];
+    }
     
     // This is the most recent view to load, so save its index in currentView
     NSNumber *currentView = [NSNumber numberWithInteger:self.counterIndex];
@@ -103,15 +106,15 @@
     // Increase number of pages
     DataSource *dataSource = parent.dataSource;
     extern NSInteger numStoredCounters;
-    NSInteger numViews = ++numStoredCounters;
     
     /* Display the new view
      *
-     * When viewDidLoad is called, it will attempt to load a Counter from file counterN on disk,
-     * where N is the new index.  When it doesn't find the file, it will simply call reset, which
-     * will initialize a new Counter with default values and save it to disk.
+     * When this is called, the highest index counter stored on disk should be numStoredCounters - 1;
+     * when viewDidLoad is called, it will attempt to load a counter from index numStoredCounters.  
+     * When it doesn't find the file, it will increment numStoredCoutners and call reset, 
+     * which will initialize a new Counter with default values and save it to disk.
      */
-    NSArray *newView = @[[dataSource viewControllerAtIndex:numViews - 1 storyboard:self.storyboard]];
+    NSArray *newView = @[[dataSource viewControllerAtIndex:numStoredCounters storyboard:self.storyboard]];
     [parent setViewControllers:newView direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
 }
 
@@ -134,17 +137,29 @@
         for(NSInteger i = self.counterIndex + 1; i < numStoredCounters; i++)
             [[NSFileManager defaultManager] moveItemAtPath:pathToStoredCounter(i) toPath:pathToStoredCounter(i - 1) error:nil
              ];
-        numStoredCounters--;
         
-        // If numStoredCounters == 0 (i.e., we just deleted the last counter), then a new Counter will be saved to counter0
-        // when we attempt to display the nonexistent counter stored in counter0.
-        // Hence, we treat the case when there are no more stored counters as if there were 1 stored counter.
-        if(!numStoredCounters)
-            numStoredCounters = 1;
+        /*
+         * Decrement numStoredCounters and determine the index of the previous view
+         *
+         * If numStoredCounters == 0 after decrementing, then we just deleted the last stored counter,
+         * so we should display counter 0, which will cause a new counter to be created 
+         * and saved to counter0.
+         */
+        NSInteger prev;
+        if(--numStoredCounters == 0)
+            prev = 0;
+        // If we deleted index 0, display the highest index counter
+        else if(!self.counterIndex)
+            prev = numStoredCounters - 1;
+        else
+            prev = self.counterIndex - 1;
+        
+        
         
         // Display the previous view
         UIPageViewController *pageViewController = (UIPageViewController *)self.parentViewController;
-        ViewController *prevPage = (ViewController *)[pageViewController.dataSource pageViewController:pageViewController viewControllerBeforeViewController:self];
+        DataSource *dataSource = (DataSource *)pageViewController.dataSource;
+        ViewController *prevPage = [dataSource viewControllerAtIndex:prev storyboard:self.storyboard];
         [pageViewController setViewControllers:@[prevPage] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
         
         NSLog(@"counter%ld deleted\n%ld counter(s) remaining", (long)self.counterIndex, (long)numStoredCounters);

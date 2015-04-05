@@ -84,7 +84,17 @@
 
 - (IBAction)resetButtonPushed:(id)sender {
     NSLog(@"Reset button pushed");
-    [self reset];
+    
+    // Ask the user to confirm before resetting
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Confirm reset" message:@"Are you sure you want to reset this counter?" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *no = [UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *yes = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [self reset];
+    }];
+    [alert addAction:no];
+    [alert addAction:yes];
+    
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (IBAction)refreshButtonPushed:(id)sender {

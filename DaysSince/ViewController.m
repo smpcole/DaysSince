@@ -82,19 +82,26 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)resetButtonPushed:(id)sender {
-    NSLog(@"Reset button pushed");
+- (void)confirmAction:(NSString *)action handler:(void (^)(UIAlertAction *))yesHandler {
     
-    // Ask the user to confirm before resetting
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Confirm reset" message:@"Are you sure you want to reset this counter?" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:[NSString stringWithFormat:@"Confirm %@", action] message:[NSString stringWithFormat:@"Are you sure you want to %@ this counter?", action] preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *no = [UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleCancel handler:nil];
-    UIAlertAction *yes = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        [self reset];
-    }];
+    UIAlertAction *yes = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:yesHandler];
     [alert addAction:no];
     [alert addAction:yes];
     
     [self presentViewController:alert animated:YES completion:nil];
+
+}
+
+- (IBAction)resetButtonPushed:(id)sender {
+    NSLog(@"Reset button pushed");
+    
+    // Ask the user to confirm before resetting
+    [self confirmAction:@"reset" handler:^(UIAlertAction *action) {
+        [self reset];
+    }];
+    
 }
 
 - (IBAction)refreshButtonPushed:(id)sender {
@@ -130,10 +137,6 @@
 
 - (IBAction)minusButtonPushed:(id)sender {
     NSLog(@"- button pushed");
-    
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Confirm delete" message:@"Are you sure you want to delete this counter?" preferredStyle:UIAlertControllerStyleAlert];
-    
-    UIAlertAction *no = [UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleCancel handler:nil];
     
     // The actual deletion proc
     void (^deleteProc)(UIAlertAction *) = ^(UIAlertAction *action) {
@@ -176,11 +179,8 @@
         
     };
     
-    UIAlertAction *yes = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:deleteProc];
-    [alert addAction:no];
-    [alert addAction:yes];
+    [self confirmAction:@"delete" handler:deleteProc];
     
-    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (BOOL)saveCounterData {

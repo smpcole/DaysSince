@@ -32,5 +32,8 @@
 - (void)reset;
 - (BOOL)saveCounterData;
 
+// Helper function for confirmation alerts
+- (void)confirmAction:(NSString *)action handler:(void (^)(UIAlertAction *))yesHandler;
+
 @end
 

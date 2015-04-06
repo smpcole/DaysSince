@@ -194,6 +194,8 @@
 }
 
 - (IBAction)setStartTimeButtonPushed:(id)sender {
+    NSLog(@"Set start time button pushed");
+    [self resetToDate:self.startTimePicker.date];
 }
 
 - (BOOL)saveCounterData {

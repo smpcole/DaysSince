@@ -29,6 +29,7 @@
 - (IBAction)minusButtonPushed:(id)sender;
 
 - (void)refresh;
+- (void)resetToDate:(NSDate *)date;
 - (void)reset;
 - (BOOL)saveCounterData;
 

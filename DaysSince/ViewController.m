@@ -16,11 +16,15 @@
 
 @implementation ViewController
 
-- (void)reset {
-    self.startTime = [NSDate date];
+- (void)resetToDate:(NSDate *)date {
+    self.startTime = date;
     NSLog(@"Start time set to %@", self.startTime);
     [self refresh];
     [self saveCounterData];
+}
+
+- (void)reset {
+    [self resetToDate:[NSDate date]];
 }
 
 - (void)refresh {

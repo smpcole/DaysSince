@@ -73,6 +73,8 @@
         [self reset];
     }
     
+    [self.startTimePicker setDate:self.startTime animated:NO];
+    
     // This is the most recent view to load, so save its index in currentView
     NSNumber *currentView = [NSNumber numberWithInteger:self.counterIndex];
     NSError *error = nil;

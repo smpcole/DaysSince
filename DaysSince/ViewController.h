@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *eventTextField;
 @property (weak, nonatomic) IBOutlet UILabel *fileLabel;
 @property (weak, nonatomic) IBOutlet UIDatePicker *startTimePicker;
+@property (weak, nonatomic) IBOutlet UIButton *setStartTimeButton;
 
 @property NSDate *startTime;
 
@@ -28,6 +29,7 @@
 - (IBAction)eventEdited:(id)sender;
 - (IBAction)plusButtonPushed:(id)sender;
 - (IBAction)minusButtonPushed:(id)sender;
+- (IBAction)setStartTimeButtonPushed:(id)sender;
 
 - (void)refresh;
 - (void)resetToDate:(NSDate *)date;

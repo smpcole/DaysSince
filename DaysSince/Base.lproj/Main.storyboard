@@ -107,6 +107,15 @@
                                     <!--2015-04-06 00:56:47 +0000-->
                                 </date>
                             </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmJ-rF-Ppn">
+                                <rect key="frame" x="254" y="486" width="92" height="30"/>
+                                <state key="normal" title="Set start time">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="setStartTimeButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pjK-NT-cMn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -116,6 +125,7 @@
                             <constraint firstItem="2iO-Zh-xLZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="2gz-mE-Aj3"/>
                             <constraint firstItem="8UR-mm-1ch" firstAttribute="top" secondItem="fgo-KU-8Dd" secondAttribute="bottom" constant="8" id="8e6-eh-IOJ"/>
                             <constraint firstItem="2jf-7L-btG" firstAttribute="top" secondItem="XeX-1y-Di1" secondAttribute="bottom" constant="8" id="Dwl-EG-GmU"/>
+                            <constraint firstItem="mmJ-rF-Ppn" firstAttribute="top" secondItem="8UR-mm-1ch" secondAttribute="bottom" constant="8" id="LJT-qe-nz0"/>
                             <constraint firstItem="2iO-Zh-xLZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="NAY-40-5Ck"/>
                             <constraint firstItem="fgo-KU-8Dd" firstAttribute="centerX" secondItem="M7M-fO-dwX" secondAttribute="centerX" id="P9Q-jb-tj4"/>
                             <constraint firstItem="XeX-1y-Di1" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="RpA-7l-9mm"/>
@@ -127,6 +137,7 @@
                             <constraint firstAttribute="centerX" secondItem="8UR-mm-1ch" secondAttribute="centerX" id="cWC-N5-3vB"/>
                             <constraint firstAttribute="centerX" secondItem="KpP-2O-cMh" secondAttribute="centerX" id="chg-s9-Uwd"/>
                             <constraint firstItem="Ij5-kJ-Jby" firstAttribute="top" secondItem="2jf-7L-btG" secondAttribute="bottom" constant="8" id="mv5-o9-fJy"/>
+                            <constraint firstAttribute="centerX" secondItem="mmJ-rF-Ppn" secondAttribute="centerX" id="ofw-8a-8kC"/>
                             <constraint firstAttribute="centerX" secondItem="2jf-7L-btG" secondAttribute="centerX" id="oxC-QD-WxQ"/>
                             <constraint firstItem="KpP-2O-cMh" firstAttribute="top" secondItem="Ij5-kJ-Jby" secondAttribute="bottom" constant="8" id="xaL-NC-Joo"/>
                             <constraint firstAttribute="centerX" secondItem="M7M-fO-dwX" secondAttribute="centerX" id="zx0-v6-U4h"/>
@@ -137,6 +148,7 @@
                         <outlet property="eventTextField" destination="Ij5-kJ-Jby" id="NIs-vJ-Clt"/>
                         <outlet property="fileLabel" destination="fgo-KU-8Dd" id="eau-1H-CK1"/>
                         <outlet property="refreshButton" destination="M7M-fO-dwX" id="x64-av-ZPt"/>
+                        <outlet property="setStartTimeButton" destination="mmJ-rF-Ppn" id="4rb-At-gmh"/>
                         <outlet property="startTimePicker" destination="8UR-mm-1ch" id="Smq-hm-Cc0"/>
                         <outlet property="timeSinceLabel" destination="2jf-7L-btG" id="U4J-wh-cXP"/>
                     </connections>

@@ -46,9 +46,14 @@
     [self.timeSinceLabel setText:@"seconds since"];
     self.fileLabel.text = [NSString stringWithFormat:@"File: counter%ld", (long)self.counterIndex];
 #else
-    self.refreshButton.hidden = YES;
-    self.fileLabel.hidden = YES;
-    self.startTimePicker.hidden = YES;
+    NSArray *hiddenElements = @[
+                                self.refreshButton,
+                                self.fileLabel,
+                                self.startTimePicker,
+                                self.setStartTimeButton
+                                ];
+    for(NSUInteger i = 0; i < hiddenElements.count; i++)
+        ((UIView *)[hiddenElements objectAtIndex:i]).hidden = YES;
 #endif
     
     self.counterPath = pathToStoredCounter(self.counterIndex);
@@ -186,6 +191,9 @@
     
     [self confirmAction:@"delete" handler:deleteProc];
     
+}
+
+- (IBAction)setStartTimeButtonPushed:(id)sender {
 }
 
 - (BOOL)saveCounterData {

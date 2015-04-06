@@ -48,6 +48,7 @@
 #else
     self.refreshButton.hidden = YES;
     self.fileLabel.hidden = YES;
+    self.startTimePicker.hidden = YES;
 #endif
     
     self.counterPath = pathToStoredCounter(self.counterIndex);

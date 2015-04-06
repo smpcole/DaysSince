@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *refreshButton;
 @property (weak, nonatomic) IBOutlet UITextField *eventTextField;
 @property (weak, nonatomic) IBOutlet UILabel *fileLabel;
+@property (weak, nonatomic) IBOutlet UIDatePicker *startTimePicker;
 
 @property NSDate *startTime;
 

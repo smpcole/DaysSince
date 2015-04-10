@@ -35,6 +35,13 @@
 #ifndef DEBUG
     // Convert to days
     timeElapsed /= (60 * 60 * 24);
+    
+    // Handle special case of 1 day
+    NSString *days = @"days";
+    if(timeElapsed == 1)
+        days = @"day";
+    self.timeSinceLabel.text = [NSString stringWithFormat:@"%@ since", days];
+    
 #endif
     [self.counterLabel setText:[NSString stringWithFormat:@"%ld", (long)timeElapsed]];
 }
